@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import Button from "react-bootstrap/Button";
 import "./ShoppingCart.css";
+
 const ShoppingCart = () => {
   const { cart, setCart } = useContext(PizzaContext);
 
