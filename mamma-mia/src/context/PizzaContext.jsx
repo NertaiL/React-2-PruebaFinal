@@ -64,7 +64,7 @@ Si la pizza ya está en el carrito, su cantidad se incremente.
 Si la pizza no está en el carrito, se añada al carrito con una cantidad inicial de 1.
 ¡Has interpretado el flujo de manera correcta! */
 
-    setCart(updatedCart);
+    setCart(updatedCart); /* aqui solamente actualizo el estado cart con el valor de updateCart */
     toast.success("Pizza añadida exitosamente", {
       position: "bottom-right",
       autoClose: 1000,
@@ -75,7 +75,7 @@ Si la pizza no está en el carrito, se añada al carrito con una cantidad inicia
       progress: undefined,
       theme: "colored",
     });
-  };
+  };/* en resumen lo que estamos haciendo con la funcion updatecart esque si esta la pizza en el carrito entonces incrementame 1 al momento si le doy a + y si no esta en el carrito entonces agregame la pizza */
 
   useEffect(() => {
     getPizza();
