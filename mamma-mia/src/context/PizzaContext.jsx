@@ -14,7 +14,7 @@ const PizzaProvider = ({ children }) => {
   const getPizza = async () => {
     try {
       const response = await axios.get(urlPizza);
-      if (response.status !== 200) {
+      if (response.status !== 200) { /* aqui estamos diciendo si la respuesta es diferente a 200 entonces dame un error como data not found */
         throw new Error("Data not found");
       }
       setPizzas(response.data);

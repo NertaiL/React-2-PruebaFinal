@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, /* useEffect  */} from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import Button from "react-bootstrap/Button";
 import "./ShoppingCart.css";
@@ -51,6 +51,7 @@ Actualiza el estado del carrito con estos cambios. */
       }
       return item;
     });
+
     setCartUpdated(true);
     toast.info("Vamos, Agregaste 1 pizzas +");
     setCart(updatedPurchase);
@@ -89,11 +90,11 @@ Finalmente, actualizas el estado cart con el nuevo arreglo de pizzas updatedPurc
             <h4>{pizza.name}</h4>
           </section>
           <section className="price-increment-decrement">
-            <h4>${pizza.price * (pizza.quantity || 1)}</h4>
+            <h4>${pizza.price * (pizza.quantity || 1)}</h4>{/* bueno aqui estoy diciendo que price me multiplique la cantidad si tiene cantidad o si no tiene que sea por 1 */}
             <Button variant="danger" onClick={() => decrement(pizza.id)}>
               Menos -
             </Button>
-            <h4>{pizza.quantity || 1}</h4>
+            <h4>{pizza.quantity || 1}</h4>{/*  bueno aqui estoy diciendo si pizza tiene alguna cantidad que me lo tome de lo contrario que me tome 1 */}
             <Button variant="success" onClick={() => increment(pizza.id)}>
               Mas +
             </Button>
@@ -109,3 +110,5 @@ Finalmente, actualizas el estado cart con el nuevo arreglo de pizzas updatedPurc
 };
 
 export default ShoppingCart;
+
+/* AQUI HUBIESE SIDO MEJOR PASARLO A COMPONENTS Y DESPUES RENDERIZARLO EN UNA VISTA LLAMADO COMO UNO QUIERA PARA QUE SE VEA MAS LIMPIO */

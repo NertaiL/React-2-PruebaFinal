@@ -4,7 +4,7 @@ import Catalogue from "../components/Catalogue";
 const Home = () => {
   return (
     <div>
-      <Catalogue />
+      <Catalogue />{/* AQUI RENDERIZO LO QUE TENGO EN CATALOGUE  */}
     </div>
   );
 };

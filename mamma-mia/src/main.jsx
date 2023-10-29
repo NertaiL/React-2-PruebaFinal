@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <PizzaProvider>
+      <PizzaProvider>{/* aqui pasamos el provider para proveer el contexto a todos los componentes que se encuentren en app */}
         <App />
       </PizzaProvider>
     </BrowserRouter>

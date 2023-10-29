@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./Catalogue.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";/*  es de react-router-dom */
 
 
 const Catalogue = () => {

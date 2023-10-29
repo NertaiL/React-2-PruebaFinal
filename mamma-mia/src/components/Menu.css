@@ -9,10 +9,10 @@
 
 .active{
     text-decoration: none;
-    color: white;
+    color:rgba(165, 42, 42, 0.76);
 }
 
 .inactive{
     text-decoration: none;
-    color: white;
+    color:brown;
 }
