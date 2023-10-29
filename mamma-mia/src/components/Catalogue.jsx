@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./Catalogue.css";
 import { useNavigate } from "react-router-dom";
-import bannerpizza from "../assets/bannerpizza.jpg";
+
 
 const Catalogue = () => {
   const { pizzas, addToCart } = useContext(PizzaContext);

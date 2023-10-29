@@ -9,6 +9,7 @@ const PizzaProvider = ({ children }) => {
   const [pizzas, setPizzas] = useState([]);
   const [pizzasDetails, setPizzasDetails] = useState({});
   const [cart, setCart] = useState([]);
+  const [cartUpdated, setCartUpdated] = useState(false);
 
   const getPizza = async () => {
     try {
@@ -91,6 +92,8 @@ Si la pizza no está en el carrito, se añada al carrito con una cantidad inicia
         cart,
         setCart,
         addToCart,
+        cartUpdated,
+        setCartUpdated
       }}
     >
       {children}

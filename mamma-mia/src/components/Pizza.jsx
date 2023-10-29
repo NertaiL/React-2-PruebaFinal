@@ -8,6 +8,7 @@ const Pizza = () => {
   const { id } = useParams();
   const { pizzas, pizzasDetails, setPizzasDetails, addToCart } =
     useContext(PizzaContext);
+
   const data = () => {
     const pizzaData = pizzas.find((pizza) => pizza.id === id);
     setPizzasDetails(pizzaData);

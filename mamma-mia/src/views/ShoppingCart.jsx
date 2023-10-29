@@ -2,9 +2,10 @@ import { useContext, useEffect } from "react";
 import { PizzaContext } from "../context/PizzaContext";
 import Button from "react-bootstrap/Button";
 import "./ShoppingCart.css";
+import { toast } from "react-toastify";
 
 const ShoppingCart = () => {
-  const { cart, setCart } = useContext(PizzaContext);
+  const { cart, setCart ,cartUpdated ,setCartUpdated } = useContext(PizzaContext);
 /* AQUI CART Y SETCART HEREDAN LO QUE CONSUMI DE LA API */
   const totalPrice = cart.reduce((acc, foundItems) => {
     return acc + foundItems.quantity * foundItems.price;
@@ -31,6 +32,8 @@ const decrement = (foundItems) => {
       (foundItems) => foundItems.quantity > 0/* aqui ocupo el metodo filter, y estoy diciendo si el founditems.quantity es mayor a 0 entonces incluyelas si es menor o igual a 0 eliminalas */
     );/* osea que si es = a 0 o menor se eliminaria, claro porque si tengo pizzas en mi carrito, y ponte seleccione 1 pizza y la elimino , como esa pizza seria 0 en cantidad se eliminaria y no se mostraria, que seria lo logico, imaginate si le hubiera apuesto mayor o igual a 0foundItems.quantity >= 0 osea que si tengo 1 pizza en el carrito y la elimino, me saldira 0 pero me seguiria mostrando la pizza lo cual no seria optimo */
     setCart(filter);
+    setCartUpdated(false);
+    toast.warn("Eliminaste 1 pizza");
   };
   /* Aquí, después de haber reducido la cantidad de la pizza deseada, uso filter para crear un nuevo arreglo que contiene solo las pizzas que tienen una cantidad mayor que 0. Esto significa que cualquier pizza con una cantidad de 0 será excluida del nuevo arreglo filter. */
  /* Finalmente, actualizas el estado cart con el arreglo filter, que es el carrito de compras actualizado después de reducir la cantidad de la pizza deseada y eliminar cualquier pizza con una cantidad de 0 */
@@ -48,7 +51,8 @@ Actualiza el estado del carrito con estos cambios. */
       }
       return item;
     });
-
+    setCartUpdated(true);
+    toast.info("Vamos, Agregaste 1 pizzas +");
     setCart(updatedPurchase);
   };
 
@@ -64,7 +68,16 @@ Luego, independientemente de si se utilizó item.quantity o 1, le sumas 1 para i
 Si el id de la pizza no coincide con foundItems, simplemente retornas la pizza tal como está sin modificarla.
 Finalmente, actualizas el estado cart con el nuevo arreglo de pizzas updatedPurchase, que refleja el incremento en la cantidad de la pizza deseada. */
 
-  useEffect(() => {}, [cart]);
+ /*  useEffect(() => {
+    if (cartUpdated) {
+      toast.info("Vamos, Agregaste 1 pizzas +");
+      setCartUpdated(false); // resetea el valor para la próxima vez
+  }
+  }, [cart,cartUpdated]); 
+  Este cambio eliminará la necesidad de utilizar el estado cartUpdated y el useEffect asociado, porque ahora estás mostrando los mensajes de toast directamente desde las funciones increment y decrement.
+  */
+
+
 
   return (
     <main className="daddy">
